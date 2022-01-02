@@ -38,8 +38,8 @@ ALLOWED_HOSTS = [
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',
-    'https://mock-store-api.herokuapp.com/',
-    'https://www.levyks.com/'
+    'https://mock-store-api.herokuapp.com',
+    'https://www.levyks.com'
 ]
 
 # Application definition
