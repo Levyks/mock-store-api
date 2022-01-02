@@ -26,5 +26,5 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 
-# Not really great for production, but we can't really use nginx in replit
-urlpatterns += static(settings.IMAGES_URL, document_root=settings.IMAGES_ROOT)
+if(settings.DEBUG):
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
