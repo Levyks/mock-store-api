@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from urllib.parse import urlparse, urlunparse, urlencode, parse_qs
 from pathlib import Path
 import environ
 
@@ -87,8 +88,13 @@ WSGI_APPLICATION = 'mock_store.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+db_url = urlparse(env('DATABASE_URL'))
+db_url_query = parse_qs(db_url.query)
+db_url_query['conn_max_age'] = 600
+db_url = urlunparse((db_url.scheme, db_url.netloc, db_url.path, db_url.params, urlencode(db_url_query, doseq=True), db_url.fragment))
+
 DATABASES = {
-    'default': env.db(),
+    'default': env.db(var="non-existent-key", default=db_url),
 }
 
 
