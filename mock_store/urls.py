@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from rest_framework import routers
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -23,7 +22,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('mock_store.api.urls')),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 
 if(settings.DEBUG):

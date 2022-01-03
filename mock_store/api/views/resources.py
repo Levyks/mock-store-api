@@ -3,8 +3,8 @@ from rest_framework.settings import api_settings
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 
-from .models import Category, Product
-from .serializers import CategorySerializer, ProductSerializer
+from ..models import Category, Product
+from ..serializers import CategorySerializer, ProductSerializer
 
 
 class CategoryList(generics.ListAPIView):

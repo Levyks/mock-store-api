@@ -33,13 +33,15 @@ DEBUG = env('DEBUG')
 ALLOWED_HOSTS = [
     'localhost',
     'mock-store-api.herokuapp.com',
-    'www.levyks.com'
+    'www.levyks.com',
+    'mock-store.local'
 ]
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',
     'https://mock-store-api.herokuapp.com',
-    'https://www.levyks.com'
+    'https://www.levyks.com',
+    'http://mock-store.local'
 ]
 
 # Application definition
@@ -160,6 +162,26 @@ DEFAULT_FILE_STORAGE = 'mock_store.storages.MediaStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
+
+    # Pagination
     'DEFAULT_PAGINATION_CLASS': 'mock_store.api.pagination.CustomPageNumberPagination',
     'PAGE_SIZE': 10,
+
+    # Authentication
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication'
+    ]
 }
+
+
+# Cookies
+
+CSRF_COOKIE_NAME = 'mock_store_csrftoken'
+CSRF_COOKIE_SAMESITE = 'Strict'
+CSRF_COOKIE_SECURE = not DEBUG
+
+SESSION_COOKIE_NAME = 'mock_store_session'
+SESSION_COOKIE_SAMESITE = 'Strict'
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SECURE = not DEBUG
+
