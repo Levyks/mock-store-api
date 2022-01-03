@@ -42,6 +42,9 @@ class ChangePasswordView(APIView):
     permission_classes = [IsAuthenticated]
     def post(self, request, *args, **kwargs):
 
+        if not request.user.can_change_password:
+            return Response({'detail': 'The password of this user cannot be changed.'}, status=403)
+
         old_password = request.data['old_password']
         if not request.user.check_password(old_password):
             return Response({'detail': 'Incorrect password.'}, status=400)

@@ -42,6 +42,8 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
 
+    can_change_password = models.BooleanField(default=True)
+
     objects = UserProfileManager()
 
     USERNAME_FIELD = 'email'

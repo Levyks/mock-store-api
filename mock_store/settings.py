@@ -33,14 +33,14 @@ DEBUG = env('DEBUG')
 ALLOWED_HOSTS = [
     'localhost',
     'mock-store-api.herokuapp.com',
-    'www.levyks.com',
+    'levyks.com',
     'mock-store.local'
 ]
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',
     'https://mock-store-api.herokuapp.com',
-    'https://www.levyks.com',
+    'https://levyks.com',
     'http://mock-store.local'
 ]
 
