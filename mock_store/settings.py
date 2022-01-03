@@ -44,6 +44,13 @@ CORS_ALLOWED_ORIGINS = [
     'http://mock-store.local'
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'localhost',
+    'mock-store-api.herokuapp.com',
+    'levyks.com',
+    'mock-store.local'
+]
+
 # Application definition
 
 INSTALLED_APPS = [
