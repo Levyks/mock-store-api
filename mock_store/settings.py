@@ -31,25 +31,19 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = [
-    'localhost',
-    'mock-store-api.herokuapp.com',
     'levyks.com',
+    'mock-store-api.herokuapp.com',
     'mock-store.local'
+    'localhost',
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8080',
-    'https://mock-store-api.herokuapp.com',
     'https://levyks.com',
-    'http://mock-store.local'
+    'https://mock-store-api.herokuapp.com',
+    'http://mock-store.local',
+    'http://localhost:8080',
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    'localhost',
-    'mock-store-api.herokuapp.com',
-    'levyks.com',
-    'mock-store.local'
-]
 
 # Application definition
 
